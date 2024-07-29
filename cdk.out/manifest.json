@@ -1,0 +1,101 @@
+{
+  "version": "36.0.0",
+  "artifacts": {
+    "WgEc2StartCdkStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "WgEc2StartCdkStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "WgEc2StartCdkStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://224612091524/us-east-1",
+      "properties": {
+        "templateFile": "WgEc2StartCdkStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::224612091524:role/cdk-hnb659fds-deploy-role-224612091524-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::224612091524:role/cdk-hnb659fds-cfn-exec-role-224612091524-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-224612091524-us-east-1/faf2db5f78c677d96cbc4cfd1ea026f1e2533fd7c6cbf94ce5a61a52df689f4c.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "WgEc2StartCdkStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::224612091524:role/cdk-hnb659fds-lookup-role-224612091524-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "WgEc2StartCdkStack.assets"
+      ],
+      "metadata": {
+        "/WgEc2StartCdkStack/ec2Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ec2Role38AB65C0"
+          }
+        ],
+        "/WgEc2StartCdkStack/oukayuu/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oukayuuInstanceProfile9552078E"
+          }
+        ],
+        "/WgEc2StartCdkStack/oukayuu/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oukayuu78F77E7D"
+          }
+        ],
+        "/WgEc2StartCdkStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueawsserviceamiamazonlinuxlatestal2023amikernel61x8664C96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/WgEc2StartCdkStack/oukayuu2/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oukayuu2InstanceProfile6B5630BD"
+          }
+        ],
+        "/WgEc2StartCdkStack/oukayuu2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oukayuu2FD16E8B1"
+          }
+        ],
+        "/WgEc2StartCdkStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/WgEc2StartCdkStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/WgEc2StartCdkStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "WgEc2StartCdkStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

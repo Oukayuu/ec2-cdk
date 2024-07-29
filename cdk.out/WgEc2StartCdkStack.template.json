@@ -1,0 +1,177 @@
+{
+ "Resources": {
+  "ec2Role38AB65C0": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ec2.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonSSMManagedInstanceCore"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "WgEc2StartCdkStack/ec2Role/Resource"
+   }
+  },
+  "oukayuuInstanceProfile9552078E": {
+   "Type": "AWS::IAM::InstanceProfile",
+   "Properties": {
+    "Roles": [
+     {
+      "Ref": "ec2Role38AB65C0"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "WgEc2StartCdkStack/oukayuu/InstanceProfile"
+   }
+  },
+  "oukayuu78F77E7D": {
+   "Type": "AWS::EC2::Instance",
+   "Properties": {
+    "AvailabilityZone": "us-east-1a",
+    "IamInstanceProfile": {
+     "Ref": "oukayuuInstanceProfile9552078E"
+    },
+    "ImageId": {
+     "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestal2023amikernel61x8664C96584B6F00A464EAD1953AFF4B05118Parameter"
+    },
+    "InstanceType": "t2.micro",
+    "KeyName": "oukayuu-ssh-test-key",
+    "SecurityGroupIds": [
+     "sg-07e7151e6f8bb2db7"
+    ],
+    "SubnetId": "subnet-0501d5549d4ad604e",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "WgEc2StartCdkStack/oukayuu"
+     }
+    ],
+    "UserData": {
+     "Fn::Base64": "#!/bin/bash"
+    }
+   },
+   "DependsOn": [
+    "ec2Role38AB65C0"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "WgEc2StartCdkStack/oukayuu/Resource"
+   }
+  },
+  "oukayuu2InstanceProfile6B5630BD": {
+   "Type": "AWS::IAM::InstanceProfile",
+   "Properties": {
+    "Roles": [
+     {
+      "Ref": "ec2Role38AB65C0"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "WgEc2StartCdkStack/oukayuu2/InstanceProfile"
+   }
+  },
+  "oukayuu2FD16E8B1": {
+   "Type": "AWS::EC2::Instance",
+   "Properties": {
+    "AvailabilityZone": "us-east-1a",
+    "IamInstanceProfile": {
+     "Ref": "oukayuu2InstanceProfile6B5630BD"
+    },
+    "ImageId": {
+     "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestal2023amikernel61x8664C96584B6F00A464EAD1953AFF4B05118Parameter"
+    },
+    "InstanceType": "t2.micro",
+    "KeyName": "key-oukayuu-mac",
+    "SecurityGroupIds": [
+     "sg-07e7151e6f8bb2db7"
+    ],
+    "SubnetId": "subnet-0501d5549d4ad604e",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "WgEc2StartCdkStack/oukayuu2"
+     }
+    ],
+    "UserData": {
+     "Fn::Base64": "#!/bin/bash"
+    }
+   },
+   "DependsOn": [
+    "ec2Role38AB65C0"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "WgEc2StartCdkStack/oukayuu2/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/02MOQ7DIBBFz+IeJgE36VOls8gBrAkeS2OzSICTAnH3rJZSPf1FT4Pqezh2+MjSTqt0fIN6LWhXYSjHLVkSr22sjB6qiY7EeQ47LyEXDJaGFGd21ARZDXVv/x+tvdOACT0VSh/Jz99EiBPBkg93dQKlQXVLZpZpC4U9gfnyCZa/cmqqAAAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "WgEc2StartCdkStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "SsmParameterValueawsserviceamiamazonlinuxlatestal2023amikernel61x8664C96584B6F00A464EAD1953AFF4B05118Parameter": {
+   "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+   "Default": "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64"
+  },
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

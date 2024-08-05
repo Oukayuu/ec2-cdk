@@ -1,8 +1,8 @@
 import * as fs from "fs";
 
 export type user = {
-  email: string;
   name: string;
+  email: string;
 };
 
 export function readData(path: string): user[] {

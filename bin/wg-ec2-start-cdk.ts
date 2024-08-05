@@ -3,7 +3,6 @@ import * as cdk from "aws-cdk-lib";
 import { Ec2CdkStack } from "../lib/wg-ec2-start-cdk-stack";
 import * as path from "path";
 import { user, readData } from "../lib/read-data";
-import { Subnet } from "aws-cdk-lib/aws-ec2";
 
 // ルートフォルダのパスを取得
 const rootDir = process.cwd();
@@ -42,6 +41,7 @@ const myEnv = {
   region: process.env.CDK_DEFAULT_REGION,
 };
 
+// スタックを作成
 const app = new cdk.App();
 new Ec2CdkStack(app, "WgEc2StartCdkStack", {
   env: myEnv,

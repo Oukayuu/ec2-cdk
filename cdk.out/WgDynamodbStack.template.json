@@ -1,0 +1,407 @@
+{
+ "Resources": {
+  "oukayuuTableED2A199B": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "name",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "age",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "oukayuu-Table-GSI",
+      "KeySchema": [
+       {
+        "AttributeName": "name",
+        "KeyType": "HASH"
+       },
+       {
+        "AttributeName": "age",
+        "KeyType": "RANGE"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "id",
+      "KeyType": "HASH"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "oukayuu-Table-GSI"
+       }
+      ],
+      "Region": "us-east-1"
+     }
+    ],
+    "TableName": "oukayuu-Table"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStack/oukayuu-Table/Resource"
+   }
+  },
+  "oukayuu2TableFA5F9DDB": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "name",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "age",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "oukayuu2-Table-GSI",
+      "KeySchema": [
+       {
+        "AttributeName": "name",
+        "KeyType": "HASH"
+       },
+       {
+        "AttributeName": "age",
+        "KeyType": "RANGE"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "id",
+      "KeyType": "HASH"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "oukayuu2-Table-GSI"
+       }
+      ],
+      "Region": "us-east-1"
+     }
+    ],
+    "TableName": "oukayuu2-Table"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStack/oukayuu2-Table/Resource"
+   }
+  },
+  "oukayuu3TableBB7E0B0C": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "name",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "age",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "oukayuu3-Table-GSI",
+      "KeySchema": [
+       {
+        "AttributeName": "name",
+        "KeyType": "HASH"
+       },
+       {
+        "AttributeName": "age",
+        "KeyType": "RANGE"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "id",
+      "KeyType": "HASH"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "oukayuu3-Table-GSI"
+       }
+      ],
+      "Region": "us-east-1"
+     }
+    ],
+    "TableName": "oukayuu3-Table"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStack/oukayuu3-Table/Resource"
+   }
+  },
+  "oukayuu4TableEBBDBF84": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "name",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "age",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "oukayuu4-Table-GSI",
+      "KeySchema": [
+       {
+        "AttributeName": "name",
+        "KeyType": "HASH"
+       },
+       {
+        "AttributeName": "age",
+        "KeyType": "RANGE"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "id",
+      "KeyType": "HASH"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "oukayuu4-Table-GSI"
+       }
+      ],
+      "Region": "us-east-1"
+     }
+    ],
+    "TableName": "oukayuu4-Table"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStack/oukayuu4-Table/Resource"
+   }
+  },
+  "oukayu5Table3113F180": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "name",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "age",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "oukayu5-Table-GSI",
+      "KeySchema": [
+       {
+        "AttributeName": "name",
+        "KeyType": "HASH"
+       },
+       {
+        "AttributeName": "age",
+        "KeyType": "RANGE"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "id",
+      "KeyType": "HASH"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "oukayu5-Table-GSI"
+       }
+      ],
+      "Region": "us-east-1"
+     }
+    ],
+    "TableName": "oukayu5-Table"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStack/oukayu5-Table/Resource"
+   }
+  },
+  "oukayuu6TableAB57E42B": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "name",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "age",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "oukayuu6-Table-GSI",
+      "KeySchema": [
+       {
+        "AttributeName": "name",
+        "KeyType": "HASH"
+       },
+       {
+        "AttributeName": "age",
+        "KeyType": "RANGE"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "id",
+      "KeyType": "HASH"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "oukayuu6-Table-GSI"
+       }
+      ],
+      "Region": "us-east-1"
+     }
+    ],
+    "TableName": "oukayuu6-Table"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStack/oukayuu6-Table/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/yXIvQ5AMBRA4Wex66W12A12xCq3P5JSbaJFRLy7Yjo5HwNaFJAneHgi5EyM5nC1AcWcRhrkaXFxMlqH3KiepdVoa+M4mg/u9xvl3baKONZJBZPPdloCZUCTyWtN1s0GvSho/j52CKHfcwAAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

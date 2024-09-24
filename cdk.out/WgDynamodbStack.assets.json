@@ -1,0 +1,20 @@
+{
+  "version": "36.0.0",
+  "files": {
+    "99214bdfbcc23cbfe5145bbc46d89655135561a9027866f67b258c7de87b5360": {
+      "source": {
+        "path": "WgDynamodbStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "224612091524-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-224612091524-us-east-1",
+          "objectKey": "99214bdfbcc23cbfe5145bbc46d89655135561a9027866f67b258c7de87b5360.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::224612091524:role/cdk-hnb659fds-file-publishing-role-224612091524-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

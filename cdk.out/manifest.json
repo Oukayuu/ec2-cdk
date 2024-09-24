@@ -1,28 +1,28 @@
 {
   "version": "36.0.0",
   "artifacts": {
-    "WgEc2StartCdkStack.assets": {
+    "WgDynamodbStack.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "WgEc2StartCdkStack.assets.json",
+        "file": "WgDynamodbStack.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "WgEc2StartCdkStack": {
+    "WgDynamodbStack": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://224612091524/us-east-1",
       "properties": {
-        "templateFile": "WgEc2StartCdkStack.template.json",
+        "templateFile": "WgDynamodbStack.template.json",
         "terminationProtection": false,
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::224612091524:role/cdk-hnb659fds-deploy-role-224612091524-us-east-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::224612091524:role/cdk-hnb659fds-cfn-exec-role-224612091524-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-224612091524-us-east-1/faf2db5f78c677d96cbc4cfd1ea026f1e2533fd7c6cbf94ce5a61a52df689f4c.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-224612091524-us-east-1/99214bdfbcc23cbfe5145bbc46d89655135561a9027866f67b258c7de87b5360.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "WgEc2StartCdkStack.assets"
+          "WgDynamodbStack.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::224612091524:role/cdk-hnb659fds-lookup-role-224612091524-us-east-1",
@@ -31,65 +31,113 @@
         }
       },
       "dependencies": [
-        "WgEc2StartCdkStack.assets"
+        "WgDynamodbStack.assets"
       ],
       "metadata": {
-        "/WgEc2StartCdkStack/ec2Role/Resource": [
+        "/WgDynamodbStack/oukayuu-Table": [
           {
-            "type": "aws:cdk:logicalId",
-            "data": "ec2Role38AB65C0"
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "oukayuuTableED2A199B"
+            }
           }
         ],
-        "/WgEc2StartCdkStack/oukayuu/InstanceProfile": [
+        "/WgDynamodbStack/oukayuu-Table/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "oukayuuInstanceProfile9552078E"
+            "data": "oukayuuTableED2A199B"
           }
         ],
-        "/WgEc2StartCdkStack/oukayuu/Resource": [
+        "/WgDynamodbStack/oukayuu2-Table": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "oukayuu2TableFA5F9DDB"
+            }
+          }
+        ],
+        "/WgDynamodbStack/oukayuu2-Table/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "oukayuu78F77E7D"
+            "data": "oukayuu2TableFA5F9DDB"
           }
         ],
-        "/WgEc2StartCdkStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--al2023-ami-kernel-6.1-x86_64:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+        "/WgDynamodbStack/oukayuu3-Table": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "oukayuu3TableBB7E0B0C"
+            }
+          }
+        ],
+        "/WgDynamodbStack/oukayuu3-Table/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SsmParameterValueawsserviceamiamazonlinuxlatestal2023amikernel61x8664C96584B6F00A464EAD1953AFF4B05118Parameter"
+            "data": "oukayuu3TableBB7E0B0C"
           }
         ],
-        "/WgEc2StartCdkStack/oukayuu2/InstanceProfile": [
+        "/WgDynamodbStack/oukayuu4-Table": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "oukayuu4TableEBBDBF84"
+            }
+          }
+        ],
+        "/WgDynamodbStack/oukayuu4-Table/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "oukayuu2InstanceProfile6B5630BD"
+            "data": "oukayuu4TableEBBDBF84"
           }
         ],
-        "/WgEc2StartCdkStack/oukayuu2/Resource": [
+        "/WgDynamodbStack/oukayu5-Table": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "oukayu5Table3113F180"
+            }
+          }
+        ],
+        "/WgDynamodbStack/oukayu5-Table/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "oukayuu2FD16E8B1"
+            "data": "oukayu5Table3113F180"
           }
         ],
-        "/WgEc2StartCdkStack/CDKMetadata/Default": [
+        "/WgDynamodbStack/oukayuu6-Table": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "oukayuu6TableAB57E42B"
+            }
+          }
+        ],
+        "/WgDynamodbStack/oukayuu6-Table/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oukayuu6TableAB57E42B"
+          }
+        ],
+        "/WgDynamodbStack/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/WgEc2StartCdkStack/BootstrapVersion": [
+        "/WgDynamodbStack/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/WgEc2StartCdkStack/CheckBootstrapVersion": [
+        "/WgDynamodbStack/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "WgEc2StartCdkStack"
+      "displayName": "WgDynamodbStack"
     },
     "Tree": {
       "type": "cdk:tree",

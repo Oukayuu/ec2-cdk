@@ -4,46 +4,38 @@
     "id": "App",
     "path": "",
     "children": {
-      "WgDynamodbStack": {
-        "id": "WgDynamodbStack",
-        "path": "WgDynamodbStack",
+      "WgDynamodbStartCdkStack": {
+        "id": "WgDynamodbStartCdkStack",
+        "path": "WgDynamodbStartCdkStack",
         "children": {
-          "oukayuu-Table": {
-            "id": "oukayuu-Table",
-            "path": "WgDynamodbStack/oukayuu-Table",
+          "yokohama.hanako-Tasks": {
+            "id": "yokohama.hanako-Tasks",
+            "path": "WgDynamodbStartCdkStack/yokohama.hanako-Tasks",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "WgDynamodbStack/oukayuu-Table/Resource",
+                "path": "WgDynamodbStartCdkStack/yokohama.hanako-Tasks/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
                   "aws:cdk:cloudformation:props": {
                     "attributeDefinitions": [
                       {
-                        "attributeName": "id",
+                        "attributeName": "task_id",
                         "attributeType": "S"
                       },
                       {
-                        "attributeName": "name",
-                        "attributeType": "S"
-                      },
-                      {
-                        "attributeName": "age",
+                        "attributeName": "search_key",
                         "attributeType": "N"
                       }
                     ],
                     "billingMode": "PAY_PER_REQUEST",
                     "globalSecondaryIndexes": [
                       {
-                        "indexName": "oukayuu-Table-GSI",
+                        "indexName": "search_key-index",
                         "keySchema": [
                           {
-                            "attributeName": "name",
+                            "attributeName": "search_key",
                             "keyType": "HASH"
-                          },
-                          {
-                            "attributeName": "age",
-                            "keyType": "RANGE"
                           }
                         ],
                         "projection": {
@@ -53,7 +45,7 @@
                     ],
                     "keySchema": [
                       {
-                        "attributeName": "id",
+                        "attributeName": "task_id",
                         "keyType": "HASH"
                       }
                     ],
@@ -62,12 +54,12 @@
                         "region": "us-east-1",
                         "globalSecondaryIndexes": [
                           {
-                            "indexName": "oukayuu-Table-GSI"
+                            "indexName": "search_key-index"
                           }
                         ]
                       }
                     ],
-                    "tableName": "oukayuu-Table"
+                    "tableName": "yokohama.hanako-Tasks"
                   }
                 },
                 "constructInfo": {
@@ -81,42 +73,34 @@
               "version": "2.133.0"
             }
           },
-          "oukayuu2-Table": {
-            "id": "oukayuu2-Table",
-            "path": "WgDynamodbStack/oukayuu2-Table",
+          "tokyou.taro-Tasks": {
+            "id": "tokyou.taro-Tasks",
+            "path": "WgDynamodbStartCdkStack/tokyou.taro-Tasks",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "WgDynamodbStack/oukayuu2-Table/Resource",
+                "path": "WgDynamodbStartCdkStack/tokyou.taro-Tasks/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
                   "aws:cdk:cloudformation:props": {
                     "attributeDefinitions": [
                       {
-                        "attributeName": "id",
+                        "attributeName": "task_id",
                         "attributeType": "S"
                       },
                       {
-                        "attributeName": "name",
-                        "attributeType": "S"
-                      },
-                      {
-                        "attributeName": "age",
+                        "attributeName": "search_key",
                         "attributeType": "N"
                       }
                     ],
                     "billingMode": "PAY_PER_REQUEST",
                     "globalSecondaryIndexes": [
                       {
-                        "indexName": "oukayuu2-Table-GSI",
+                        "indexName": "search_key-index",
                         "keySchema": [
                           {
-                            "attributeName": "name",
+                            "attributeName": "search_key",
                             "keyType": "HASH"
-                          },
-                          {
-                            "attributeName": "age",
-                            "keyType": "RANGE"
                           }
                         ],
                         "projection": {
@@ -126,7 +110,7 @@
                     ],
                     "keySchema": [
                       {
-                        "attributeName": "id",
+                        "attributeName": "task_id",
                         "keyType": "HASH"
                       }
                     ],
@@ -135,12 +119,12 @@
                         "region": "us-east-1",
                         "globalSecondaryIndexes": [
                           {
-                            "indexName": "oukayuu2-Table-GSI"
+                            "indexName": "search_key-index"
                           }
                         ]
                       }
                     ],
-                    "tableName": "oukayuu2-Table"
+                    "tableName": "tokyou.taro-Tasks"
                   }
                 },
                 "constructInfo": {
@@ -154,42 +138,34 @@
               "version": "2.133.0"
             }
           },
-          "oukayuu3-Table": {
-            "id": "oukayuu3-Table",
-            "path": "WgDynamodbStack/oukayuu3-Table",
+          "wang.jiayu-Tasks": {
+            "id": "wang.jiayu-Tasks",
+            "path": "WgDynamodbStartCdkStack/wang.jiayu-Tasks",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "WgDynamodbStack/oukayuu3-Table/Resource",
+                "path": "WgDynamodbStartCdkStack/wang.jiayu-Tasks/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
                   "aws:cdk:cloudformation:props": {
                     "attributeDefinitions": [
                       {
-                        "attributeName": "id",
+                        "attributeName": "task_id",
                         "attributeType": "S"
                       },
                       {
-                        "attributeName": "name",
-                        "attributeType": "S"
-                      },
-                      {
-                        "attributeName": "age",
+                        "attributeName": "search_key",
                         "attributeType": "N"
                       }
                     ],
                     "billingMode": "PAY_PER_REQUEST",
                     "globalSecondaryIndexes": [
                       {
-                        "indexName": "oukayuu3-Table-GSI",
+                        "indexName": "search_key-index",
                         "keySchema": [
                           {
-                            "attributeName": "name",
+                            "attributeName": "search_key",
                             "keyType": "HASH"
-                          },
-                          {
-                            "attributeName": "age",
-                            "keyType": "RANGE"
                           }
                         ],
                         "projection": {
@@ -199,7 +175,7 @@
                     ],
                     "keySchema": [
                       {
-                        "attributeName": "id",
+                        "attributeName": "task_id",
                         "keyType": "HASH"
                       }
                     ],
@@ -208,12 +184,12 @@
                         "region": "us-east-1",
                         "globalSecondaryIndexes": [
                           {
-                            "indexName": "oukayuu3-Table-GSI"
+                            "indexName": "search_key-index"
                           }
                         ]
                       }
                     ],
-                    "tableName": "oukayuu3-Table"
+                    "tableName": "wang.jiayu-Tasks"
                   }
                 },
                 "constructInfo": {
@@ -227,42 +203,34 @@
               "version": "2.133.0"
             }
           },
-          "oukayuu4-Table": {
-            "id": "oukayuu4-Table",
-            "path": "WgDynamodbStack/oukayuu4-Table",
+          "wang.jiayu2-Tasks": {
+            "id": "wang.jiayu2-Tasks",
+            "path": "WgDynamodbStartCdkStack/wang.jiayu2-Tasks",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "WgDynamodbStack/oukayuu4-Table/Resource",
+                "path": "WgDynamodbStartCdkStack/wang.jiayu2-Tasks/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
                   "aws:cdk:cloudformation:props": {
                     "attributeDefinitions": [
                       {
-                        "attributeName": "id",
+                        "attributeName": "task_id",
                         "attributeType": "S"
                       },
                       {
-                        "attributeName": "name",
-                        "attributeType": "S"
-                      },
-                      {
-                        "attributeName": "age",
+                        "attributeName": "search_key",
                         "attributeType": "N"
                       }
                     ],
                     "billingMode": "PAY_PER_REQUEST",
                     "globalSecondaryIndexes": [
                       {
-                        "indexName": "oukayuu4-Table-GSI",
+                        "indexName": "search_key-index",
                         "keySchema": [
                           {
-                            "attributeName": "name",
+                            "attributeName": "search_key",
                             "keyType": "HASH"
-                          },
-                          {
-                            "attributeName": "age",
-                            "keyType": "RANGE"
                           }
                         ],
                         "projection": {
@@ -272,7 +240,7 @@
                     ],
                     "keySchema": [
                       {
-                        "attributeName": "id",
+                        "attributeName": "task_id",
                         "keyType": "HASH"
                       }
                     ],
@@ -281,12 +249,12 @@
                         "region": "us-east-1",
                         "globalSecondaryIndexes": [
                           {
-                            "indexName": "oukayuu4-Table-GSI"
+                            "indexName": "search_key-index"
                           }
                         ]
                       }
                     ],
-                    "tableName": "oukayuu4-Table"
+                    "tableName": "wang.jiayu2-Tasks"
                   }
                 },
                 "constructInfo": {
@@ -300,42 +268,34 @@
               "version": "2.133.0"
             }
           },
-          "oukayu5-Table": {
-            "id": "oukayu5-Table",
-            "path": "WgDynamodbStack/oukayu5-Table",
+          "wang.jiayu3-Tasks": {
+            "id": "wang.jiayu3-Tasks",
+            "path": "WgDynamodbStartCdkStack/wang.jiayu3-Tasks",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "WgDynamodbStack/oukayu5-Table/Resource",
+                "path": "WgDynamodbStartCdkStack/wang.jiayu3-Tasks/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
                   "aws:cdk:cloudformation:props": {
                     "attributeDefinitions": [
                       {
-                        "attributeName": "id",
+                        "attributeName": "task_id",
                         "attributeType": "S"
                       },
                       {
-                        "attributeName": "name",
-                        "attributeType": "S"
-                      },
-                      {
-                        "attributeName": "age",
+                        "attributeName": "search_key",
                         "attributeType": "N"
                       }
                     ],
                     "billingMode": "PAY_PER_REQUEST",
                     "globalSecondaryIndexes": [
                       {
-                        "indexName": "oukayu5-Table-GSI",
+                        "indexName": "search_key-index",
                         "keySchema": [
                           {
-                            "attributeName": "name",
+                            "attributeName": "search_key",
                             "keyType": "HASH"
-                          },
-                          {
-                            "attributeName": "age",
-                            "keyType": "RANGE"
                           }
                         ],
                         "projection": {
@@ -345,7 +305,7 @@
                     ],
                     "keySchema": [
                       {
-                        "attributeName": "id",
+                        "attributeName": "task_id",
                         "keyType": "HASH"
                       }
                     ],
@@ -354,12 +314,12 @@
                         "region": "us-east-1",
                         "globalSecondaryIndexes": [
                           {
-                            "indexName": "oukayu5-Table-GSI"
+                            "indexName": "search_key-index"
                           }
                         ]
                       }
                     ],
-                    "tableName": "oukayu5-Table"
+                    "tableName": "wang.jiayu3-Tasks"
                   }
                 },
                 "constructInfo": {
@@ -373,42 +333,34 @@
               "version": "2.133.0"
             }
           },
-          "oukayuu6-Table": {
-            "id": "oukayuu6-Table",
-            "path": "WgDynamodbStack/oukayuu6-Table",
+          "wang.jiayu4-Tasks": {
+            "id": "wang.jiayu4-Tasks",
+            "path": "WgDynamodbStartCdkStack/wang.jiayu4-Tasks",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "WgDynamodbStack/oukayuu6-Table/Resource",
+                "path": "WgDynamodbStartCdkStack/wang.jiayu4-Tasks/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
                   "aws:cdk:cloudformation:props": {
                     "attributeDefinitions": [
                       {
-                        "attributeName": "id",
+                        "attributeName": "task_id",
                         "attributeType": "S"
                       },
                       {
-                        "attributeName": "name",
-                        "attributeType": "S"
-                      },
-                      {
-                        "attributeName": "age",
+                        "attributeName": "search_key",
                         "attributeType": "N"
                       }
                     ],
                     "billingMode": "PAY_PER_REQUEST",
                     "globalSecondaryIndexes": [
                       {
-                        "indexName": "oukayuu6-Table-GSI",
+                        "indexName": "search_key-index",
                         "keySchema": [
                           {
-                            "attributeName": "name",
+                            "attributeName": "search_key",
                             "keyType": "HASH"
-                          },
-                          {
-                            "attributeName": "age",
-                            "keyType": "RANGE"
                           }
                         ],
                         "projection": {
@@ -418,7 +370,7 @@
                     ],
                     "keySchema": [
                       {
-                        "attributeName": "id",
+                        "attributeName": "task_id",
                         "keyType": "HASH"
                       }
                     ],
@@ -427,12 +379,142 @@
                         "region": "us-east-1",
                         "globalSecondaryIndexes": [
                           {
-                            "indexName": "oukayuu6-Table-GSI"
+                            "indexName": "search_key-index"
                           }
                         ]
                       }
                     ],
-                    "tableName": "oukayuu6-Table"
+                    "tableName": "wang.jiayu4-Tasks"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_dynamodb.TableV2",
+              "version": "2.133.0"
+            }
+          },
+          "wang.jiay5-Tasks": {
+            "id": "wang.jiay5-Tasks",
+            "path": "WgDynamodbStartCdkStack/wang.jiay5-Tasks",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "WgDynamodbStartCdkStack/wang.jiay5-Tasks/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
+                  "aws:cdk:cloudformation:props": {
+                    "attributeDefinitions": [
+                      {
+                        "attributeName": "task_id",
+                        "attributeType": "S"
+                      },
+                      {
+                        "attributeName": "search_key",
+                        "attributeType": "N"
+                      }
+                    ],
+                    "billingMode": "PAY_PER_REQUEST",
+                    "globalSecondaryIndexes": [
+                      {
+                        "indexName": "search_key-index",
+                        "keySchema": [
+                          {
+                            "attributeName": "search_key",
+                            "keyType": "HASH"
+                          }
+                        ],
+                        "projection": {
+                          "projectionType": "ALL"
+                        }
+                      }
+                    ],
+                    "keySchema": [
+                      {
+                        "attributeName": "task_id",
+                        "keyType": "HASH"
+                      }
+                    ],
+                    "replicas": [
+                      {
+                        "region": "us-east-1",
+                        "globalSecondaryIndexes": [
+                          {
+                            "indexName": "search_key-index"
+                          }
+                        ]
+                      }
+                    ],
+                    "tableName": "wang.jiay5-Tasks"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_dynamodb.TableV2",
+              "version": "2.133.0"
+            }
+          },
+          "wang.jiayu6-Tasks": {
+            "id": "wang.jiayu6-Tasks",
+            "path": "WgDynamodbStartCdkStack/wang.jiayu6-Tasks",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "WgDynamodbStartCdkStack/wang.jiayu6-Tasks/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
+                  "aws:cdk:cloudformation:props": {
+                    "attributeDefinitions": [
+                      {
+                        "attributeName": "task_id",
+                        "attributeType": "S"
+                      },
+                      {
+                        "attributeName": "search_key",
+                        "attributeType": "N"
+                      }
+                    ],
+                    "billingMode": "PAY_PER_REQUEST",
+                    "globalSecondaryIndexes": [
+                      {
+                        "indexName": "search_key-index",
+                        "keySchema": [
+                          {
+                            "attributeName": "search_key",
+                            "keyType": "HASH"
+                          }
+                        ],
+                        "projection": {
+                          "projectionType": "ALL"
+                        }
+                      }
+                    ],
+                    "keySchema": [
+                      {
+                        "attributeName": "task_id",
+                        "keyType": "HASH"
+                      }
+                    ],
+                    "replicas": [
+                      {
+                        "region": "us-east-1",
+                        "globalSecondaryIndexes": [
+                          {
+                            "indexName": "search_key-index"
+                          }
+                        ]
+                      }
+                    ],
+                    "tableName": "wang.jiayu6-Tasks"
                   }
                 },
                 "constructInfo": {
@@ -448,11 +530,11 @@
           },
           "CDKMetadata": {
             "id": "CDKMetadata",
-            "path": "WgDynamodbStack/CDKMetadata",
+            "path": "WgDynamodbStartCdkStack/CDKMetadata",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "WgDynamodbStack/CDKMetadata/Default",
+                "path": "WgDynamodbStartCdkStack/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.133.0"
@@ -466,7 +548,7 @@
           },
           "BootstrapVersion": {
             "id": "BootstrapVersion",
-            "path": "WgDynamodbStack/BootstrapVersion",
+            "path": "WgDynamodbStartCdkStack/BootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.133.0"
@@ -474,7 +556,7 @@
           },
           "CheckBootstrapVersion": {
             "id": "CheckBootstrapVersion",
-            "path": "WgDynamodbStack/CheckBootstrapVersion",
+            "path": "WgDynamodbStartCdkStack/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
               "version": "2.133.0"

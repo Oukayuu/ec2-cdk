@@ -1,0 +1,463 @@
+{
+ "Resources": {
+  "yokohamahanakoTasksAC2CD3B5": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "task_id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "search_key",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "search_key-index",
+      "KeySchema": [
+       {
+        "AttributeName": "search_key",
+        "KeyType": "HASH"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "task_id",
+      "KeyType": "HASH"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "search_key-index"
+       }
+      ],
+      "Region": "us-east-1"
+     }
+    ],
+    "TableName": "yokohama.hanako-Tasks"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStartCdkStack/yokohama.hanako-Tasks/Resource"
+   }
+  },
+  "tokyoutaroTasks3BEAB310": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "task_id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "search_key",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "search_key-index",
+      "KeySchema": [
+       {
+        "AttributeName": "search_key",
+        "KeyType": "HASH"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "task_id",
+      "KeyType": "HASH"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "search_key-index"
+       }
+      ],
+      "Region": "us-east-1"
+     }
+    ],
+    "TableName": "tokyou.taro-Tasks"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStartCdkStack/tokyou.taro-Tasks/Resource"
+   }
+  },
+  "wangjiayuTasks147E5F0D": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "task_id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "search_key",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "search_key-index",
+      "KeySchema": [
+       {
+        "AttributeName": "search_key",
+        "KeyType": "HASH"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "task_id",
+      "KeyType": "HASH"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "search_key-index"
+       }
+      ],
+      "Region": "us-east-1"
+     }
+    ],
+    "TableName": "wang.jiayu-Tasks"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStartCdkStack/wang.jiayu-Tasks/Resource"
+   }
+  },
+  "wangjiayu2TasksB7E3346A": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "task_id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "search_key",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "search_key-index",
+      "KeySchema": [
+       {
+        "AttributeName": "search_key",
+        "KeyType": "HASH"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "task_id",
+      "KeyType": "HASH"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "search_key-index"
+       }
+      ],
+      "Region": "us-east-1"
+     }
+    ],
+    "TableName": "wang.jiayu2-Tasks"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStartCdkStack/wang.jiayu2-Tasks/Resource"
+   }
+  },
+  "wangjiayu3Tasks47A0B58D": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "task_id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "search_key",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "search_key-index",
+      "KeySchema": [
+       {
+        "AttributeName": "search_key",
+        "KeyType": "HASH"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "task_id",
+      "KeyType": "HASH"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "search_key-index"
+       }
+      ],
+      "Region": "us-east-1"
+     }
+    ],
+    "TableName": "wang.jiayu3-Tasks"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStartCdkStack/wang.jiayu3-Tasks/Resource"
+   }
+  },
+  "wangjiayu4TasksBC426249": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "task_id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "search_key",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "search_key-index",
+      "KeySchema": [
+       {
+        "AttributeName": "search_key",
+        "KeyType": "HASH"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "task_id",
+      "KeyType": "HASH"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "search_key-index"
+       }
+      ],
+      "Region": "us-east-1"
+     }
+    ],
+    "TableName": "wang.jiayu4-Tasks"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStartCdkStack/wang.jiayu4-Tasks/Resource"
+   }
+  },
+  "wangjiay5Tasks5E5C8042": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "task_id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "search_key",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "search_key-index",
+      "KeySchema": [
+       {
+        "AttributeName": "search_key",
+        "KeyType": "HASH"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "task_id",
+      "KeyType": "HASH"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "search_key-index"
+       }
+      ],
+      "Region": "us-east-1"
+     }
+    ],
+    "TableName": "wang.jiay5-Tasks"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStartCdkStack/wang.jiay5-Tasks/Resource"
+   }
+  },
+  "wangjiayu6Tasks13350A61": {
+   "Type": "AWS::DynamoDB::GlobalTable",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "task_id",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "search_key",
+      "AttributeType": "N"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "search_key-index",
+      "KeySchema": [
+       {
+        "AttributeName": "search_key",
+        "KeyType": "HASH"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "task_id",
+      "KeyType": "HASH"
+     }
+    ],
+    "Replicas": [
+     {
+      "GlobalSecondaryIndexes": [
+       {
+        "IndexName": "search_key-index"
+       }
+      ],
+      "Region": "us-east-1"
+     }
+    ],
+    "TableName": "wang.jiayu6-Tasks"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStartCdkStack/wang.jiayu6-Tasks/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/yXIuw5AMBSA4Wex66EM7AY7YpXTi6RUm7QuEfHuiunP/2VA8xzSCA9PuJiJVgyudkU+x4EGcRpcrAjWIdOyz+JqNLW2DPUH9/uN9HZzPIyxQsLkk52WQAug0eSVIm4zq1okNH8fDvOCN3MAAAA="
+   },
+   "Metadata": {
+    "aws:cdk:path": "WgDynamodbStartCdkStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

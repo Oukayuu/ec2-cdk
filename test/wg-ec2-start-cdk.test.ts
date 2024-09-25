@@ -4,7 +4,7 @@ import * as WgEc2StartCdk from "../lib/wg-ec2-start-cdk-stack";
 import * as AWS from "aws-sdk";
 import * as fs from 'fs';
 import * as path from "path";
-import { user, readData } from "../lib/read-data";
+import { user, readUserData } from "../lib/read-data";
 
 // AWS SDKの設定
 AWS.config.update({ region: "us-east-1" });
@@ -88,7 +88,7 @@ test("get all user data", async () => {
   const jsonFilePath = path.join(rootDir, "data", "iam-users.json");
 
   // JSONファイルを読み込む
-  const users = readData(jsonFilePath);
+  const users = readUserData(jsonFilePath);
 
   console.log(users);
 });

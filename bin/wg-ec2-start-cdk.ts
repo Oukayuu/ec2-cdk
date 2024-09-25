@@ -5,11 +5,7 @@ import * as path from "path";
 import { user, readUserData ,readDynamodbNameList, dynamodbNameList} from "../lib/read-data";
 import { dynamodbCdkStack } from "../lib/wg-dynamodb-start-cdk-stack";
 import AWS = require("aws-sdk");
-const { HttpsProxyAgent } = require("https-proxy-agent");
 
-AWS.config.update({
-  httpOptions: { agent: new HttpsProxyAgent("http://proxy.mei.co.jp:8080") },
-});
 const credentials = new AWS.SharedIniFileCredentials({
   profile: "default",
 });
@@ -25,21 +21,72 @@ const users: user[] = readUserData(userJsonFilePath);
 // emailから@以前の文字列を抽出して配列に格納
 const emailPrefixes: string[] = users.map((user) => user.email.split("@")[0]);
 
+const dynamodb = new AWS.DynamoDB();
+
+// dynamodbテーブル名を取得する関数を定義
+async function listTables() {
+  try {
+    const data = await dynamodb.listTables().promise();
+    return data.TableNames;
+  } catch (error) {
+    console.error("Error fetching tables:", error);
+    throw error;
+  }
+}
+
+// dynamodbテーブル名を取得
+const tableNameFinished = listTables();
 
 // 既に登録済のテーブル名を取得
-const tableNameJsonFilePath = path.join(rootDir, "data", "dynamodb-name-list.json");
-// JSONファイルを読み込む
-const tableNames: dynamodbNameList[] = readDynamodbNameList(tableNameJsonFilePath);
+// const tableNameJsonFilePath = path.join(rootDir, "data", "dynamodb-name-list.json");
+// // JSONファイルを読み込む
+// const tableNames: dynamodbNameList[] = readDynamodbNameList(tableNameJsonFilePath);
 // prefixを取得
-const emailPrefixesFinished = tableNames.map((tableName) => tableName.tableName.split("-")[0]);
+// emailPrefixesToCreateを取得する関数を定義
+async function getEmailPrefixesToCreate(): Promise<string[]> {
+  const tableNameFinished = await listTables();
 
-// emailPrefixesFinishedに含まれていないemailPrefixesを取得
-const emailPrefixesToCreate = emailPrefixes.filter(
-  (emailPrefix) => !emailPrefixesFinished.includes(emailPrefix)
-);
+  if (tableNameFinished) {
+    // prefixを取得
+    const emailPrefixesFinished = tableNameFinished.map((tableName) => tableName.split("-")[0]);
 
-// 新規作成のテーブル名を表示
-console.log("Create DynamoDB Tables: ", emailPrefixesToCreate);
+    // emailPrefixesFinishedに含まれていないemailPrefixesを取得
+    const emailPrefixesToCreate = emailPrefixes.filter(
+      (emailPrefix) => !emailPrefixesFinished.includes(emailPrefix)
+    );
+
+    return emailPrefixesToCreate;
+  } else {
+    console.log("No table names found.");
+    return [];
+  }
+}
+
+// 関数を呼び出して結果を利用
+getEmailPrefixesToCreate().then((emailPrefixesToCreate) => {
+  console.log("Email prefixes to create:", emailPrefixesToCreate);
+  // 環境変数を取得
+  const myEnv = {
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+    region: process.env.CDK_DEFAULT_REGION,
+  };
+  
+  // スタックを作成
+  const app = new cdk.App();
+  // new Ec2CdkStack(app, "WgEc2StartCdkStack", {
+  //   env: myEnv,
+  //   users: users,
+  //   emailPrefixes: emailPrefixes,
+  //   existingResources: existingResources,
+  // });
+  new dynamodbCdkStack(app, "WgDynamodbStartCdkStack", {
+    env: myEnv,
+    users: users,
+    emailPrefixes: emailPrefixesToCreate,
+  });
+}).catch((error) => {
+  console.error("Error:", error);
+});
 
 // 既存のリソースの情報を取得する（スタックに渡し用）
 // const existingResources = {
@@ -63,22 +110,3 @@ console.log("Create DynamoDB Tables: ", emailPrefixesToCreate);
 //   },
 // };
 
-// 環境変数を取得
-const myEnv = {
-  account: process.env.CDK_DEFAULT_ACCOUNT,
-  region: process.env.CDK_DEFAULT_REGION,
-};
-
-// スタックを作成
-const app = new cdk.App();
-// new Ec2CdkStack(app, "WgEc2StartCdkStack", {
-//   env: myEnv,
-//   users: users,
-//   emailPrefixes: emailPrefixes,
-//   existingResources: existingResources,
-// });
-new dynamodbCdkStack(app, "WgDynamodbStartCdkStack", {
-  env: myEnv,
-  users: users,
-  emailPrefixes: emailPrefixesToCreate,
-});

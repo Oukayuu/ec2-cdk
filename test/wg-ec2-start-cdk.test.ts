@@ -3,6 +3,8 @@ import { Template, Match } from "aws-cdk-lib/assertions";
 import * as WgEc2StartCdk from "../lib/wg-ec2-start-cdk-stack";
 import * as AWS from "aws-sdk";
 import * as fs from 'fs';
+import * as path from "path";
+import { user, readData } from "../lib/read-data";
 
 // AWS SDKの設定
 AWS.config.update({ region: "us-east-1" });
@@ -76,4 +78,17 @@ test("list all the key pairs", async () => {
   } catch (error) {
     console.error("Error processing key pairs:", error);
   }
+});
+
+test("get all user data", async () => {
+  // ルートフォルダのパスを取得
+  const rootDir = process.cwd();
+
+  // JSONファイルのパスを指定
+  const jsonFilePath = path.join(rootDir, "data", "iam-users.json");
+
+  // JSONファイルを読み込む
+  const users = readData(jsonFilePath);
+
+  console.log(users);
 });

@@ -1,28 +1,28 @@
 {
   "version": "36.0.0",
   "artifacts": {
-    "WgDynamodbStartCdkStack.assets": {
+    "LambdaCdkStack.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "WgDynamodbStartCdkStack.assets.json",
+        "file": "LambdaCdkStack.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "WgDynamodbStartCdkStack": {
+    "LambdaCdkStack": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://224612091524/us-east-1",
       "properties": {
-        "templateFile": "WgDynamodbStartCdkStack.template.json",
+        "templateFile": "LambdaCdkStack.template.json",
         "terminationProtection": false,
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::224612091524:role/cdk-hnb659fds-deploy-role-224612091524-us-east-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::224612091524:role/cdk-hnb659fds-cfn-exec-role-224612091524-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-224612091524-us-east-1/ccdee8d3bd1a4c6edff320ce4e060aa852b3ba6b91eb1dea7439313608b3dba1.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-224612091524-us-east-1/bb82a27b6a4542f302eecd21842ec177c030c41d4f37ad92b12b8a6b106dbc3c.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "WgDynamodbStartCdkStack.assets"
+          "LambdaCdkStack.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::224612091524:role/cdk-hnb659fds-lookup-role-224612091524-us-east-1",
@@ -31,141 +31,71 @@
         }
       },
       "dependencies": [
-        "WgDynamodbStartCdkStack.assets"
+        "LambdaCdkStack.assets"
       ],
       "metadata": {
-        "/WgDynamodbStartCdkStack/yokohama.hanako-Tasks": [
-          {
-            "type": "aws:cdk:hasPhysicalName",
-            "data": {
-              "Ref": "yokohamahanakoTasksAC2CD3B5"
-            }
-          }
-        ],
-        "/WgDynamodbStartCdkStack/yokohama.hanako-Tasks/Resource": [
+        "/LambdaCdkStack/yokohama-hanako-taskRegister/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "yokohamahanakoTasksAC2CD3B5"
+            "data": "yokohamahanakotaskRegister7655A40D"
           }
         ],
-        "/WgDynamodbStartCdkStack/tokyou.taro-Tasks": [
-          {
-            "type": "aws:cdk:hasPhysicalName",
-            "data": {
-              "Ref": "tokyoutaroTasks3BEAB310"
-            }
-          }
-        ],
-        "/WgDynamodbStartCdkStack/tokyou.taro-Tasks/Resource": [
+        "/LambdaCdkStack/tokyou-taro-taskRegister/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "tokyoutaroTasks3BEAB310"
+            "data": "tokyoutarotaskRegister1939B794"
           }
         ],
-        "/WgDynamodbStartCdkStack/wang.jiayu-Tasks": [
-          {
-            "type": "aws:cdk:hasPhysicalName",
-            "data": {
-              "Ref": "wangjiayuTasks147E5F0D"
-            }
-          }
-        ],
-        "/WgDynamodbStartCdkStack/wang.jiayu-Tasks/Resource": [
+        "/LambdaCdkStack/wang-jiayu2-taskRegister/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "wangjiayuTasks147E5F0D"
+            "data": "wangjiayu2taskRegister466DF57F"
           }
         ],
-        "/WgDynamodbStartCdkStack/wang.jiayu2-Tasks": [
-          {
-            "type": "aws:cdk:hasPhysicalName",
-            "data": {
-              "Ref": "wangjiayu2TasksB7E3346A"
-            }
-          }
-        ],
-        "/WgDynamodbStartCdkStack/wang.jiayu2-Tasks/Resource": [
+        "/LambdaCdkStack/wang-jiayu3-taskRegister/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "wangjiayu2TasksB7E3346A"
+            "data": "wangjiayu3taskRegister54470344"
           }
         ],
-        "/WgDynamodbStartCdkStack/wang.jiayu3-Tasks": [
-          {
-            "type": "aws:cdk:hasPhysicalName",
-            "data": {
-              "Ref": "wangjiayu3Tasks47A0B58D"
-            }
-          }
-        ],
-        "/WgDynamodbStartCdkStack/wang.jiayu3-Tasks/Resource": [
+        "/LambdaCdkStack/wang-jiayu4-taskRegister/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "wangjiayu3Tasks47A0B58D"
+            "data": "wangjiayu4taskRegisterF2D03D59"
           }
         ],
-        "/WgDynamodbStartCdkStack/wang.jiayu4-Tasks": [
-          {
-            "type": "aws:cdk:hasPhysicalName",
-            "data": {
-              "Ref": "wangjiayu4TasksBC426249"
-            }
-          }
-        ],
-        "/WgDynamodbStartCdkStack/wang.jiayu4-Tasks/Resource": [
+        "/LambdaCdkStack/wang-jiay5-taskRegister/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "wangjiayu4TasksBC426249"
+            "data": "wangjiay5taskRegister2622D49F"
           }
         ],
-        "/WgDynamodbStartCdkStack/wang.jiay5-Tasks": [
-          {
-            "type": "aws:cdk:hasPhysicalName",
-            "data": {
-              "Ref": "wangjiay5Tasks5E5C8042"
-            }
-          }
-        ],
-        "/WgDynamodbStartCdkStack/wang.jiay5-Tasks/Resource": [
+        "/LambdaCdkStack/wang-jiayu6-taskRegister/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "wangjiay5Tasks5E5C8042"
+            "data": "wangjiayu6taskRegisterE61C9D18"
           }
         ],
-        "/WgDynamodbStartCdkStack/wang.jiayu6-Tasks": [
-          {
-            "type": "aws:cdk:hasPhysicalName",
-            "data": {
-              "Ref": "wangjiayu6Tasks13350A61"
-            }
-          }
-        ],
-        "/WgDynamodbStartCdkStack/wang.jiayu6-Tasks/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "wangjiayu6Tasks13350A61"
-          }
-        ],
-        "/WgDynamodbStartCdkStack/CDKMetadata/Default": [
+        "/LambdaCdkStack/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/WgDynamodbStartCdkStack/BootstrapVersion": [
+        "/LambdaCdkStack/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/WgDynamodbStartCdkStack/CheckBootstrapVersion": [
+        "/LambdaCdkStack/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "WgDynamodbStartCdkStack"
+      "displayName": "LambdaCdkStack"
     },
     "Tree": {
       "type": "cdk:tree",

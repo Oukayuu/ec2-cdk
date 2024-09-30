@@ -104,58 +104,6 @@
     "aws:cdk:path": "WgDynamodbStartCdkStack/tokyou.taro-Tasks/Resource"
    }
   },
-  "wangjiayuTasks147E5F0D": {
-   "Type": "AWS::DynamoDB::GlobalTable",
-   "Properties": {
-    "AttributeDefinitions": [
-     {
-      "AttributeName": "task_id",
-      "AttributeType": "S"
-     },
-     {
-      "AttributeName": "search_key",
-      "AttributeType": "N"
-     }
-    ],
-    "BillingMode": "PAY_PER_REQUEST",
-    "GlobalSecondaryIndexes": [
-     {
-      "IndexName": "search_key-index",
-      "KeySchema": [
-       {
-        "AttributeName": "search_key",
-        "KeyType": "HASH"
-       }
-      ],
-      "Projection": {
-       "ProjectionType": "ALL"
-      }
-     }
-    ],
-    "KeySchema": [
-     {
-      "AttributeName": "task_id",
-      "KeyType": "HASH"
-     }
-    ],
-    "Replicas": [
-     {
-      "GlobalSecondaryIndexes": [
-       {
-        "IndexName": "search_key-index"
-       }
-      ],
-      "Region": "us-east-1"
-     }
-    ],
-    "TableName": "wang.jiayu-Tasks"
-   },
-   "UpdateReplacePolicy": "Retain",
-   "DeletionPolicy": "Retain",
-   "Metadata": {
-    "aws:cdk:path": "WgDynamodbStartCdkStack/wang.jiayu-Tasks/Resource"
-   }
-  },
   "wangjiayu2TasksB7E3346A": {
    "Type": "AWS::DynamoDB::GlobalTable",
    "Properties": {

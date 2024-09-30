@@ -4,537 +4,488 @@
     "id": "App",
     "path": "",
     "children": {
-      "WgDynamodbStartCdkStack": {
-        "id": "WgDynamodbStartCdkStack",
-        "path": "WgDynamodbStartCdkStack",
+      "LambdaCdkStack": {
+        "id": "LambdaCdkStack",
+        "path": "LambdaCdkStack",
         "children": {
-          "yokohama.hanako-Tasks": {
-            "id": "yokohama.hanako-Tasks",
-            "path": "WgDynamodbStartCdkStack/yokohama.hanako-Tasks",
-            "children": {
-              "Resource": {
-                "id": "Resource",
-                "path": "WgDynamodbStartCdkStack/yokohama.hanako-Tasks/Resource",
-                "attributes": {
-                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
-                  "aws:cdk:cloudformation:props": {
-                    "attributeDefinitions": [
-                      {
-                        "attributeName": "task_id",
-                        "attributeType": "S"
-                      },
-                      {
-                        "attributeName": "search_key",
-                        "attributeType": "N"
-                      }
-                    ],
-                    "billingMode": "PAY_PER_REQUEST",
-                    "globalSecondaryIndexes": [
-                      {
-                        "indexName": "search_key-index",
-                        "keySchema": [
-                          {
-                            "attributeName": "search_key",
-                            "keyType": "HASH"
-                          }
-                        ],
-                        "projection": {
-                          "projectionType": "ALL"
-                        }
-                      }
-                    ],
-                    "keySchema": [
-                      {
-                        "attributeName": "task_id",
-                        "keyType": "HASH"
-                      }
-                    ],
-                    "replicas": [
-                      {
-                        "region": "us-east-1",
-                        "globalSecondaryIndexes": [
-                          {
-                            "indexName": "search_key-index"
-                          }
-                        ]
-                      }
-                    ],
-                    "tableName": "yokohama.hanako-Tasks"
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
-                  "version": "2.133.0"
-                }
-              }
-            },
+          "Sample-LambdaRole ": {
+            "id": "Sample-LambdaRole ",
+            "path": "LambdaCdkStack/Sample-LambdaRole ",
             "constructInfo": {
-              "fqn": "aws-cdk-lib.aws_dynamodb.TableV2",
+              "fqn": "aws-cdk-lib.Resource",
               "version": "2.133.0"
             }
           },
-          "tokyou.taro-Tasks": {
-            "id": "tokyou.taro-Tasks",
-            "path": "WgDynamodbStartCdkStack/tokyou.taro-Tasks",
-            "children": {
-              "Resource": {
-                "id": "Resource",
-                "path": "WgDynamodbStartCdkStack/tokyou.taro-Tasks/Resource",
-                "attributes": {
-                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
-                  "aws:cdk:cloudformation:props": {
-                    "attributeDefinitions": [
-                      {
-                        "attributeName": "task_id",
-                        "attributeType": "S"
-                      },
-                      {
-                        "attributeName": "search_key",
-                        "attributeType": "N"
-                      }
-                    ],
-                    "billingMode": "PAY_PER_REQUEST",
-                    "globalSecondaryIndexes": [
-                      {
-                        "indexName": "search_key-index",
-                        "keySchema": [
-                          {
-                            "attributeName": "search_key",
-                            "keyType": "HASH"
-                          }
-                        ],
-                        "projection": {
-                          "projectionType": "ALL"
-                        }
-                      }
-                    ],
-                    "keySchema": [
-                      {
-                        "attributeName": "task_id",
-                        "keyType": "HASH"
-                      }
-                    ],
-                    "replicas": [
-                      {
-                        "region": "us-east-1",
-                        "globalSecondaryIndexes": [
-                          {
-                            "indexName": "search_key-index"
-                          }
-                        ]
-                      }
-                    ],
-                    "tableName": "tokyou.taro-Tasks"
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
-                  "version": "2.133.0"
-                }
-              }
-            },
+          "node_modules": {
+            "id": "node_modules",
+            "path": "LambdaCdkStack/node_modules",
             "constructInfo": {
-              "fqn": "aws-cdk-lib.aws_dynamodb.TableV2",
+              "fqn": "aws-cdk-lib.Resource",
               "version": "2.133.0"
             }
           },
-          "wang.jiayu-Tasks": {
-            "id": "wang.jiayu-Tasks",
-            "path": "WgDynamodbStartCdkStack/wang.jiayu-Tasks",
+          "yokohama-hanako-taskRegister": {
+            "id": "yokohama-hanako-taskRegister",
+            "path": "LambdaCdkStack/yokohama-hanako-taskRegister",
             "children": {
-              "Resource": {
-                "id": "Resource",
-                "path": "WgDynamodbStartCdkStack/wang.jiayu-Tasks/Resource",
-                "attributes": {
-                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
-                  "aws:cdk:cloudformation:props": {
-                    "attributeDefinitions": [
-                      {
-                        "attributeName": "task_id",
-                        "attributeType": "S"
-                      },
-                      {
-                        "attributeName": "search_key",
-                        "attributeType": "N"
-                      }
-                    ],
-                    "billingMode": "PAY_PER_REQUEST",
-                    "globalSecondaryIndexes": [
-                      {
-                        "indexName": "search_key-index",
-                        "keySchema": [
-                          {
-                            "attributeName": "search_key",
-                            "keyType": "HASH"
-                          }
-                        ],
-                        "projection": {
-                          "projectionType": "ALL"
-                        }
-                      }
-                    ],
-                    "keySchema": [
-                      {
-                        "attributeName": "task_id",
-                        "keyType": "HASH"
-                      }
-                    ],
-                    "replicas": [
-                      {
-                        "region": "us-east-1",
-                        "globalSecondaryIndexes": [
-                          {
-                            "indexName": "search_key-index"
-                          }
-                        ]
-                      }
-                    ],
-                    "tableName": "wang.jiayu-Tasks"
+              "Code": {
+                "id": "Code",
+                "path": "LambdaCdkStack/yokohama-hanako-taskRegister/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "LambdaCdkStack/yokohama-hanako-taskRegister/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "LambdaCdkStack/yokohama-hanako-taskRegister/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.133.0"
+                    }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.133.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "LambdaCdkStack/yokohama-hanako-taskRegister/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-224612091524-us-east-1",
+                      "s3Key": "cf0157729d83d80e6347eed04883cb1b09411c70442bdefc55f0fd1f1a8242f9.zip"
+                    },
+                    "environment": {
+                      "variables": {
+                        "tableName": "yokohama-hanako-Tasks"
+                      }
+                    },
+                    "functionName": "yokohama-hanako-taskRegister",
+                    "handler": "index.handler",
+                    "layers": [
+                      "arn:aws:lambda:us-east-1:224612091524:layer:node_modules:1"
+                    ],
+                    "role": "arn:aws:iam::224612091524:role/Sample-LambdaRole",
+                    "runtime": "nodejs20.x"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
                   "version": "2.133.0"
                 }
               }
             },
             "constructInfo": {
-              "fqn": "aws-cdk-lib.aws_dynamodb.TableV2",
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
               "version": "2.133.0"
             }
           },
-          "wang.jiayu2-Tasks": {
-            "id": "wang.jiayu2-Tasks",
-            "path": "WgDynamodbStartCdkStack/wang.jiayu2-Tasks",
+          "tokyou-taro-taskRegister": {
+            "id": "tokyou-taro-taskRegister",
+            "path": "LambdaCdkStack/tokyou-taro-taskRegister",
             "children": {
-              "Resource": {
-                "id": "Resource",
-                "path": "WgDynamodbStartCdkStack/wang.jiayu2-Tasks/Resource",
-                "attributes": {
-                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
-                  "aws:cdk:cloudformation:props": {
-                    "attributeDefinitions": [
-                      {
-                        "attributeName": "task_id",
-                        "attributeType": "S"
-                      },
-                      {
-                        "attributeName": "search_key",
-                        "attributeType": "N"
-                      }
-                    ],
-                    "billingMode": "PAY_PER_REQUEST",
-                    "globalSecondaryIndexes": [
-                      {
-                        "indexName": "search_key-index",
-                        "keySchema": [
-                          {
-                            "attributeName": "search_key",
-                            "keyType": "HASH"
-                          }
-                        ],
-                        "projection": {
-                          "projectionType": "ALL"
-                        }
-                      }
-                    ],
-                    "keySchema": [
-                      {
-                        "attributeName": "task_id",
-                        "keyType": "HASH"
-                      }
-                    ],
-                    "replicas": [
-                      {
-                        "region": "us-east-1",
-                        "globalSecondaryIndexes": [
-                          {
-                            "indexName": "search_key-index"
-                          }
-                        ]
-                      }
-                    ],
-                    "tableName": "wang.jiayu2-Tasks"
+              "Code": {
+                "id": "Code",
+                "path": "LambdaCdkStack/tokyou-taro-taskRegister/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "LambdaCdkStack/tokyou-taro-taskRegister/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "LambdaCdkStack/tokyou-taro-taskRegister/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.133.0"
+                    }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.133.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "LambdaCdkStack/tokyou-taro-taskRegister/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-224612091524-us-east-1",
+                      "s3Key": "cf0157729d83d80e6347eed04883cb1b09411c70442bdefc55f0fd1f1a8242f9.zip"
+                    },
+                    "environment": {
+                      "variables": {
+                        "tableName": "tokyou-taro-Tasks"
+                      }
+                    },
+                    "functionName": "tokyou-taro-taskRegister",
+                    "handler": "index.handler",
+                    "layers": [
+                      "arn:aws:lambda:us-east-1:224612091524:layer:node_modules:1"
+                    ],
+                    "role": "arn:aws:iam::224612091524:role/Sample-LambdaRole",
+                    "runtime": "nodejs20.x"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
                   "version": "2.133.0"
                 }
               }
             },
             "constructInfo": {
-              "fqn": "aws-cdk-lib.aws_dynamodb.TableV2",
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
               "version": "2.133.0"
             }
           },
-          "wang.jiayu3-Tasks": {
-            "id": "wang.jiayu3-Tasks",
-            "path": "WgDynamodbStartCdkStack/wang.jiayu3-Tasks",
+          "wang-jiayu2-taskRegister": {
+            "id": "wang-jiayu2-taskRegister",
+            "path": "LambdaCdkStack/wang-jiayu2-taskRegister",
             "children": {
-              "Resource": {
-                "id": "Resource",
-                "path": "WgDynamodbStartCdkStack/wang.jiayu3-Tasks/Resource",
-                "attributes": {
-                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
-                  "aws:cdk:cloudformation:props": {
-                    "attributeDefinitions": [
-                      {
-                        "attributeName": "task_id",
-                        "attributeType": "S"
-                      },
-                      {
-                        "attributeName": "search_key",
-                        "attributeType": "N"
-                      }
-                    ],
-                    "billingMode": "PAY_PER_REQUEST",
-                    "globalSecondaryIndexes": [
-                      {
-                        "indexName": "search_key-index",
-                        "keySchema": [
-                          {
-                            "attributeName": "search_key",
-                            "keyType": "HASH"
-                          }
-                        ],
-                        "projection": {
-                          "projectionType": "ALL"
-                        }
-                      }
-                    ],
-                    "keySchema": [
-                      {
-                        "attributeName": "task_id",
-                        "keyType": "HASH"
-                      }
-                    ],
-                    "replicas": [
-                      {
-                        "region": "us-east-1",
-                        "globalSecondaryIndexes": [
-                          {
-                            "indexName": "search_key-index"
-                          }
-                        ]
-                      }
-                    ],
-                    "tableName": "wang.jiayu3-Tasks"
+              "Code": {
+                "id": "Code",
+                "path": "LambdaCdkStack/wang-jiayu2-taskRegister/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "LambdaCdkStack/wang-jiayu2-taskRegister/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "LambdaCdkStack/wang-jiayu2-taskRegister/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.133.0"
+                    }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.133.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "LambdaCdkStack/wang-jiayu2-taskRegister/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-224612091524-us-east-1",
+                      "s3Key": "cf0157729d83d80e6347eed04883cb1b09411c70442bdefc55f0fd1f1a8242f9.zip"
+                    },
+                    "environment": {
+                      "variables": {
+                        "tableName": "wang-jiayu2-Tasks"
+                      }
+                    },
+                    "functionName": "wang-jiayu2-taskRegister",
+                    "handler": "index.handler",
+                    "layers": [
+                      "arn:aws:lambda:us-east-1:224612091524:layer:node_modules:1"
+                    ],
+                    "role": "arn:aws:iam::224612091524:role/Sample-LambdaRole",
+                    "runtime": "nodejs20.x"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
                   "version": "2.133.0"
                 }
               }
             },
             "constructInfo": {
-              "fqn": "aws-cdk-lib.aws_dynamodb.TableV2",
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
               "version": "2.133.0"
             }
           },
-          "wang.jiayu4-Tasks": {
-            "id": "wang.jiayu4-Tasks",
-            "path": "WgDynamodbStartCdkStack/wang.jiayu4-Tasks",
+          "wang-jiayu3-taskRegister": {
+            "id": "wang-jiayu3-taskRegister",
+            "path": "LambdaCdkStack/wang-jiayu3-taskRegister",
             "children": {
-              "Resource": {
-                "id": "Resource",
-                "path": "WgDynamodbStartCdkStack/wang.jiayu4-Tasks/Resource",
-                "attributes": {
-                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
-                  "aws:cdk:cloudformation:props": {
-                    "attributeDefinitions": [
-                      {
-                        "attributeName": "task_id",
-                        "attributeType": "S"
-                      },
-                      {
-                        "attributeName": "search_key",
-                        "attributeType": "N"
-                      }
-                    ],
-                    "billingMode": "PAY_PER_REQUEST",
-                    "globalSecondaryIndexes": [
-                      {
-                        "indexName": "search_key-index",
-                        "keySchema": [
-                          {
-                            "attributeName": "search_key",
-                            "keyType": "HASH"
-                          }
-                        ],
-                        "projection": {
-                          "projectionType": "ALL"
-                        }
-                      }
-                    ],
-                    "keySchema": [
-                      {
-                        "attributeName": "task_id",
-                        "keyType": "HASH"
-                      }
-                    ],
-                    "replicas": [
-                      {
-                        "region": "us-east-1",
-                        "globalSecondaryIndexes": [
-                          {
-                            "indexName": "search_key-index"
-                          }
-                        ]
-                      }
-                    ],
-                    "tableName": "wang.jiayu4-Tasks"
+              "Code": {
+                "id": "Code",
+                "path": "LambdaCdkStack/wang-jiayu3-taskRegister/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "LambdaCdkStack/wang-jiayu3-taskRegister/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "LambdaCdkStack/wang-jiayu3-taskRegister/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.133.0"
+                    }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.133.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "LambdaCdkStack/wang-jiayu3-taskRegister/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-224612091524-us-east-1",
+                      "s3Key": "cf0157729d83d80e6347eed04883cb1b09411c70442bdefc55f0fd1f1a8242f9.zip"
+                    },
+                    "environment": {
+                      "variables": {
+                        "tableName": "wang-jiayu3-Tasks"
+                      }
+                    },
+                    "functionName": "wang-jiayu3-taskRegister",
+                    "handler": "index.handler",
+                    "layers": [
+                      "arn:aws:lambda:us-east-1:224612091524:layer:node_modules:1"
+                    ],
+                    "role": "arn:aws:iam::224612091524:role/Sample-LambdaRole",
+                    "runtime": "nodejs20.x"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
                   "version": "2.133.0"
                 }
               }
             },
             "constructInfo": {
-              "fqn": "aws-cdk-lib.aws_dynamodb.TableV2",
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
               "version": "2.133.0"
             }
           },
-          "wang.jiay5-Tasks": {
-            "id": "wang.jiay5-Tasks",
-            "path": "WgDynamodbStartCdkStack/wang.jiay5-Tasks",
+          "wang-jiayu4-taskRegister": {
+            "id": "wang-jiayu4-taskRegister",
+            "path": "LambdaCdkStack/wang-jiayu4-taskRegister",
             "children": {
-              "Resource": {
-                "id": "Resource",
-                "path": "WgDynamodbStartCdkStack/wang.jiay5-Tasks/Resource",
-                "attributes": {
-                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
-                  "aws:cdk:cloudformation:props": {
-                    "attributeDefinitions": [
-                      {
-                        "attributeName": "task_id",
-                        "attributeType": "S"
-                      },
-                      {
-                        "attributeName": "search_key",
-                        "attributeType": "N"
-                      }
-                    ],
-                    "billingMode": "PAY_PER_REQUEST",
-                    "globalSecondaryIndexes": [
-                      {
-                        "indexName": "search_key-index",
-                        "keySchema": [
-                          {
-                            "attributeName": "search_key",
-                            "keyType": "HASH"
-                          }
-                        ],
-                        "projection": {
-                          "projectionType": "ALL"
-                        }
-                      }
-                    ],
-                    "keySchema": [
-                      {
-                        "attributeName": "task_id",
-                        "keyType": "HASH"
-                      }
-                    ],
-                    "replicas": [
-                      {
-                        "region": "us-east-1",
-                        "globalSecondaryIndexes": [
-                          {
-                            "indexName": "search_key-index"
-                          }
-                        ]
-                      }
-                    ],
-                    "tableName": "wang.jiay5-Tasks"
+              "Code": {
+                "id": "Code",
+                "path": "LambdaCdkStack/wang-jiayu4-taskRegister/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "LambdaCdkStack/wang-jiayu4-taskRegister/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "LambdaCdkStack/wang-jiayu4-taskRegister/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.133.0"
+                    }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.133.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "LambdaCdkStack/wang-jiayu4-taskRegister/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-224612091524-us-east-1",
+                      "s3Key": "cf0157729d83d80e6347eed04883cb1b09411c70442bdefc55f0fd1f1a8242f9.zip"
+                    },
+                    "environment": {
+                      "variables": {
+                        "tableName": "wang-jiayu4-Tasks"
+                      }
+                    },
+                    "functionName": "wang-jiayu4-taskRegister",
+                    "handler": "index.handler",
+                    "layers": [
+                      "arn:aws:lambda:us-east-1:224612091524:layer:node_modules:1"
+                    ],
+                    "role": "arn:aws:iam::224612091524:role/Sample-LambdaRole",
+                    "runtime": "nodejs20.x"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
                   "version": "2.133.0"
                 }
               }
             },
             "constructInfo": {
-              "fqn": "aws-cdk-lib.aws_dynamodb.TableV2",
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
               "version": "2.133.0"
             }
           },
-          "wang.jiayu6-Tasks": {
-            "id": "wang.jiayu6-Tasks",
-            "path": "WgDynamodbStartCdkStack/wang.jiayu6-Tasks",
+          "wang-jiay5-taskRegister": {
+            "id": "wang-jiay5-taskRegister",
+            "path": "LambdaCdkStack/wang-jiay5-taskRegister",
             "children": {
-              "Resource": {
-                "id": "Resource",
-                "path": "WgDynamodbStartCdkStack/wang.jiayu6-Tasks/Resource",
-                "attributes": {
-                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::GlobalTable",
-                  "aws:cdk:cloudformation:props": {
-                    "attributeDefinitions": [
-                      {
-                        "attributeName": "task_id",
-                        "attributeType": "S"
-                      },
-                      {
-                        "attributeName": "search_key",
-                        "attributeType": "N"
-                      }
-                    ],
-                    "billingMode": "PAY_PER_REQUEST",
-                    "globalSecondaryIndexes": [
-                      {
-                        "indexName": "search_key-index",
-                        "keySchema": [
-                          {
-                            "attributeName": "search_key",
-                            "keyType": "HASH"
-                          }
-                        ],
-                        "projection": {
-                          "projectionType": "ALL"
-                        }
-                      }
-                    ],
-                    "keySchema": [
-                      {
-                        "attributeName": "task_id",
-                        "keyType": "HASH"
-                      }
-                    ],
-                    "replicas": [
-                      {
-                        "region": "us-east-1",
-                        "globalSecondaryIndexes": [
-                          {
-                            "indexName": "search_key-index"
-                          }
-                        ]
-                      }
-                    ],
-                    "tableName": "wang.jiayu6-Tasks"
+              "Code": {
+                "id": "Code",
+                "path": "LambdaCdkStack/wang-jiay5-taskRegister/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "LambdaCdkStack/wang-jiay5-taskRegister/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "LambdaCdkStack/wang-jiay5-taskRegister/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.133.0"
+                    }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.133.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "LambdaCdkStack/wang-jiay5-taskRegister/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-224612091524-us-east-1",
+                      "s3Key": "cf0157729d83d80e6347eed04883cb1b09411c70442bdefc55f0fd1f1a8242f9.zip"
+                    },
+                    "environment": {
+                      "variables": {
+                        "tableName": "wang-jiay5-Tasks"
+                      }
+                    },
+                    "functionName": "wang-jiay5-taskRegister",
+                    "handler": "index.handler",
+                    "layers": [
+                      "arn:aws:lambda:us-east-1:224612091524:layer:node_modules:1"
+                    ],
+                    "role": "arn:aws:iam::224612091524:role/Sample-LambdaRole",
+                    "runtime": "nodejs20.x"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
                   "version": "2.133.0"
                 }
               }
             },
             "constructInfo": {
-              "fqn": "aws-cdk-lib.aws_dynamodb.TableV2",
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.133.0"
+            }
+          },
+          "wang-jiayu6-taskRegister": {
+            "id": "wang-jiayu6-taskRegister",
+            "path": "LambdaCdkStack/wang-jiayu6-taskRegister",
+            "children": {
+              "Code": {
+                "id": "Code",
+                "path": "LambdaCdkStack/wang-jiayu6-taskRegister/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "LambdaCdkStack/wang-jiayu6-taskRegister/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.133.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "LambdaCdkStack/wang-jiayu6-taskRegister/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.133.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.133.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "LambdaCdkStack/wang-jiayu6-taskRegister/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-224612091524-us-east-1",
+                      "s3Key": "cf0157729d83d80e6347eed04883cb1b09411c70442bdefc55f0fd1f1a8242f9.zip"
+                    },
+                    "environment": {
+                      "variables": {
+                        "tableName": "wang-jiayu6-Tasks"
+                      }
+                    },
+                    "functionName": "wang-jiayu6-taskRegister",
+                    "handler": "index.handler",
+                    "layers": [
+                      "arn:aws:lambda:us-east-1:224612091524:layer:node_modules:1"
+                    ],
+                    "role": "arn:aws:iam::224612091524:role/Sample-LambdaRole",
+                    "runtime": "nodejs20.x"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.133.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
               "version": "2.133.0"
             }
           },
           "CDKMetadata": {
             "id": "CDKMetadata",
-            "path": "WgDynamodbStartCdkStack/CDKMetadata",
+            "path": "LambdaCdkStack/CDKMetadata",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "WgDynamodbStartCdkStack/CDKMetadata/Default",
+                "path": "LambdaCdkStack/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.133.0"
@@ -548,7 +499,7 @@
           },
           "BootstrapVersion": {
             "id": "BootstrapVersion",
-            "path": "WgDynamodbStartCdkStack/BootstrapVersion",
+            "path": "LambdaCdkStack/BootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.133.0"
@@ -556,7 +507,7 @@
           },
           "CheckBootstrapVersion": {
             "id": "CheckBootstrapVersion",
-            "path": "WgDynamodbStartCdkStack/CheckBootstrapVersion",
+            "path": "LambdaCdkStack/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
               "version": "2.133.0"

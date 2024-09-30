@@ -5,6 +5,7 @@ import * as path from "path";
 import { user, readUserData ,readDynamodbNameList, dynamodbNameList} from "../lib/read-data";
 import { dynamodbCdkStack } from "../lib/wg-dynamodb-start-cdk-stack";
 import AWS = require("aws-sdk");
+import { LambdaCdkStack } from "../lib/wg-lambda-cdk-stack";
 
 const credentials = new AWS.SharedIniFileCredentials({
   profile: "default",
@@ -34,14 +35,6 @@ async function listTables() {
   }
 }
 
-// dynamodbテーブル名を取得
-const tableNameFinished = listTables();
-
-// 既に登録済のテーブル名を取得
-// const tableNameJsonFilePath = path.join(rootDir, "data", "dynamodb-name-list.json");
-// // JSONファイルを読み込む
-// const tableNames: dynamodbNameList[] = readDynamodbNameList(tableNameJsonFilePath);
-// prefixを取得
 // emailPrefixesToCreateを取得する関数を定義
 async function getEmailPrefixesToCreate(): Promise<string[]> {
   const tableNameFinished = await listTables();
@@ -70,6 +63,11 @@ getEmailPrefixesToCreate().then((emailPrefixesToCreate) => {
     account: process.env.CDK_DEFAULT_ACCOUNT,
     region: process.env.CDK_DEFAULT_REGION,
   };
+
+  // emailPrefixesToCreate内の"."を"-"に置換
+  emailPrefixesToCreate.forEach((emailPrefix, index) => {
+    emailPrefixesToCreate[index] = emailPrefix.replace(".", "-");
+  });
   
   // スタックを作成
   const app = new cdk.App();
@@ -79,7 +77,12 @@ getEmailPrefixesToCreate().then((emailPrefixesToCreate) => {
   //   emailPrefixes: emailPrefixes,
   //   existingResources: existingResources,
   // });
-  new dynamodbCdkStack(app, "WgDynamodbStartCdkStack", {
+  // new dynamodbCdkStack(app, "WgDynamodbStartCdkStack", {
+  //   env: myEnv,
+  //   users: users,
+  //   emailPrefixes: emailPrefixesToCreate,
+  // });
+  new LambdaCdkStack(app, "LambdaCdkStack", {
     env: myEnv,
     users: users,
     emailPrefixes: emailPrefixesToCreate,

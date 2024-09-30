@@ -4,7 +4,6 @@ import * as cdk from "aws-cdk-lib";
 import * as lambda from "aws-cdk-lib/aws-lambda";
 import { user } from "./read-data";
 import * as iam from "aws-cdk-lib/aws-iam";
-import { aws_lambda_nodejs } from "aws-cdk-lib";
 import path = require("path");
 
 interface lambdaStackProps extends cdk.StackProps {
@@ -13,7 +12,7 @@ interface lambdaStackProps extends cdk.StackProps {
 }
 
 // lambda関数を作成する
-export class lambdaCdkStack extends Stack {
+export class LambdaCdkStack extends Stack {
   constructor(scope: Construct, id: string, props: lambdaStackProps) {
     super(scope, id, props);
 
@@ -21,25 +20,28 @@ export class lambdaCdkStack extends Stack {
     const role = iam.Role.fromRoleArn(
       this,
       "Sample-LambdaRole ",
-      "arn:aws:iam::211125479140:role/Sample-LambdaRole"
+      // "arn:aws:iam::211125479140:role/Sample-LambdaRole"
+      "arn:aws:iam::224612091524:role/Sample-LambdaRole"
     );
 
     // 既存のレイヤーを取得
     const layer = lambda.LayerVersion.fromLayerVersionArn(
       this,
       "node_modules",
-      "arn:aws:lambda:ap-northeast-1:211125479140:layer:node_modules:1"
+      // "arn:aws:lambda:ap-northeast-1:211125479140:layer:node_modules:1"
+      "arn:aws:lambda:us-east-1:224612091524:layer:node_modules:1"
     );
 
     props.emailPrefixes.forEach((emailPrefix) => {
-      new aws_lambda_nodejs.NodejsFunction(
+      new lambda.Function(
         this,
         `${emailPrefix}-taskRegister`,
         {
           functionName: `${emailPrefix}-taskRegister`,
           runtime: lambda.Runtime.NODEJS_20_X,
-          entry: path.join(__dirname, "../src/task-register/index.mjs"),
-          handler: "handler",
+          // entry: path.join(__dirname, "../src/task-register/index.mjs"),
+          code: lambda.Code.fromAsset(path.join(__dirname, "../src/task-register")),
+          handler: "index.handler",
           environment: {
             tableName: `${emailPrefix}-Tasks`,
           },

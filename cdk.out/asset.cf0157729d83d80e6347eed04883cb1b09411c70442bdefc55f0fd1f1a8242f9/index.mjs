@@ -18,7 +18,6 @@ const generateUniqueId = () => {
 };
 
 export const handler = async (event) => {
-  console.log(`event: ${JSON.stringify(event)}`); 
   // リクエストボディチェック(Lambdaプロキシ統合の場合はパースする必要あり)
   let body;
   try {

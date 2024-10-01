@@ -1,24 +1,34 @@
 import exp = require("constants");
 import * as fs from "fs";
 
-export type user = {
+export type User = {
   name: string;
   email: string;
 };
 
-export type dynamodbNameList = {
-  tableName: string;
+export type Prefix = {
+  emailPrefix: string;
+  emailPrefixNoNumber: string;
+  emailPrefixNoNumberNoDot: string;
 };
 
-export function readUserData(path: string): user[] {
+
+
+export function readUserData(path: string): User[] {
   // JSONファイルを読み込む
   const users = JSON.parse(fs.readFileSync(path, "utf8")).data;
 
   return users;
 }
+// usersからprefixesを取得する関数を定義
+export function getEmailPrefixes(users: User[]): Prefix[] {
+  const prefixes = users.map((user) => {
+    const emailPrefix = user.email.split("@")[0];
+    const emailPrefixNoNumber = emailPrefix.replace(/\d+$/, "");
+    const emailPrefixNoNumberNoDot = emailPrefixNoNumber.replace(".", "");
+    return { emailPrefix, emailPrefixNoNumber, emailPrefixNoNumberNoDot };
+  });
 
-export function readDynamodbNameList(path: string): dynamodbNameList[] { 
-  // JSONファイルを読み込む
-  const dynamodbNameList = JSON.parse(fs.readFileSync(path, "utf8")).data;
-  return dynamodbNameList;
+  return prefixes;
 }
+

@@ -2,10 +2,10 @@ import { Stack } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as cdk from 'aws-cdk-lib';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
-import { user } from './read-data';
+import { User } from './read-data';
 
 interface dynamodbStackProps extends cdk.StackProps {
-  users: user[];
+  users: User[];
   emailPrefixes: string[];
 } 
 

@@ -37,12 +37,22 @@ async function listTables() {
 }
 
 // Lambda関数名を取得する関数を定義
-async function listLambdaFunctions() {
-  try {
-    const data = await lambda.listFunctions().promise();
+async function listAllLambdaFunctions(): Promise<string[]> {
+  let functionNames: string[] = [];
+  let nextMarker: string | undefined = undefined;
 
-    // dataからFunction名のみを取得
-    const functionNames = data.Functions?.map((func) => func.FunctionName);
+  try {
+    do {
+      const data: AWS.Lambda.ListFunctionsResponse = await lambda
+        .listFunctions({ Marker: nextMarker })
+        .promise();
+      const names = (
+        data.Functions?.map((func) => func.FunctionName) || []
+      ).filter((name): name is string => name !== undefined);
+      functionNames = functionNames.concat(names);
+      nextMarker = data.NextMarker;
+    } while (nextMarker);
+
     return functionNames;
   } catch (error) {
     console.error("Error fetching lambda functions:", error);
@@ -52,13 +62,14 @@ async function listLambdaFunctions() {
 
 // lambdaPrefixesToCreateを取得する関数を定義
 async function getLambdaPrefixesToCreate(): Promise<Prefix[]> {
-  const lambdaFunctionNames = await listLambdaFunctions();
+  const lambdaFunctionNames = await listAllLambdaFunctions();
 
   if (lambdaFunctionNames) {
     // prefixを取得(例：wangjiayu)
     const lambdaPrefixesFinished = lambdaFunctionNames.map(
-      (functionName) => functionName?.split("-")[0]
+      (functionName) => functionName!.split("-")[0]
     );
+    console.log("lambdaPrefixesFinished:", lambdaPrefixesFinished);
 
     // prefixesをロープして、lambdaPrefixesFinishedに含まれていないprefixを取得し、Prefix[]タイプとして出力、prefixesToCreateに格納
     const lambdaPrefixesToCreate: Prefix[] = prefixes.filter(
